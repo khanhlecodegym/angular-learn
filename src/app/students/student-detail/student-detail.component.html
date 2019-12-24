@@ -1,0 +1,16 @@
+<div class="container">
+  <img [src]="student?.imageUrl" [alt]="student?.name" srcset="" class="student-image">
+  <div class="row">
+    <div class="col-md-11">
+      <h2>{{student?.name}}</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div><strong>Date:</strong> {{student?.date}}</div>
+      <div><strong>Time:</strong> {{student?.time}}</div>
+      <div><strong>Price:</strong> {{student?.price}}</div>
+    </div>
+  </div>
+</div>
