@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
   templateUrl: './create-student.component.html'
 })
 export class CreateStudentComponent {
+  isDirty:boolean = true
   constructor(private router: Router) {}
 
   cancel() {

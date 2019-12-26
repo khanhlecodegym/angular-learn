@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { StudentService } from './services/student.services'
 import { ToastrService } from '../common/toastr.services';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'students-list',
@@ -22,12 +23,13 @@ export class StudentsListComponent implements OnInit{
   students:any[]
 
   constructor(private studentService: StudentService,
-      private toastr: ToastrService) {
+      private toastr: ToastrService, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-    this.students = this.studentService.getStudents();
+    // this.studentService.getStudents().subscribe(students => {this.students = students});
+    this.students = this.route.snapshot.data['students']
   }
 
   handleClicked(data) {

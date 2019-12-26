@@ -11,6 +11,9 @@ import { StudentDetailComponent } from './students/student-detail/student-detail
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { CreateStudentComponent } from './students/create-student.component';
+import { Error404Component } from './erros/404.component';
+import { StudentRouterActivator } from './students/student-detail/student-route-activator.service';
+import { StudentListResolver } from './students/student-list-resolver.service';
 
 @NgModule({
   imports: [
@@ -23,12 +26,27 @@ import { CreateStudentComponent } from './students/create-student.component';
     StudentThumbnailComponent,
     StudentDetailComponent,
     CreateStudentComponent,
+    Error404Component,
     NavBarComponent
   ],
   providers: [
     StudentService,
-    ToastrService
+    StudentRouterActivator,
+    ToastrService,
+    StudentListResolver,
+    {
+      provide: 'canDeactivateCreateStudent',
+      useValue: checkDirtyState
+    }
   ],
     bootstrap: [C7AppComponent]
 })
 export class AppModule { }
+
+export function checkDirtyState(component: CreateStudentComponent) {
+  if (component.isDirty) {
+    return window.confirm('Are you OK??')
+  }
+
+  return true;
+}

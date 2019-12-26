@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable()
 export class StudentService {
-  getStudents() {
-    return STUDENTS;
+  getStudents(): Observable<any[]> {
+    let subject = new Subject<any[]>()
+    setTimeout(() => {subject.next(STUDENTS); subject.complete();}, 3100)
+    return subject;
   }
 
   getStudentById(id: number) {
