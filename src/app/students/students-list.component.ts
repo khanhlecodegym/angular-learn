@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { StudentService } from './services/student.services'
 import { ToastrService } from '../common/toastr.services';
 import { ActivatedRoute } from '@angular/router';
+import { IStudent } from './services/student.model';
 
 @Component({
   selector: 'students-list',
@@ -20,7 +21,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class StudentsListComponent implements OnInit{
-  students:any[]
+  students:IStudent[]
 
   constructor(private studentService: StudentService,
       private toastr: ToastrService, private route: ActivatedRoute) {

@@ -1,0 +1,6 @@
+export * from './create-student.component'
+export * from './student-list-resolver.service'
+export * from './student-thumbnail.component'
+export * from './students-list.component'
+export * from './services/index'
+export * from './student-detail/index'

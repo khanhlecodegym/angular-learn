@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
+import { IStudent } from './services/student.model';
 
 @Component({
   selector: 'student-thumbnail',
@@ -33,7 +34,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 })
 
 export class StudentThumbnailComponent {
-  @Input() student:any
+  @Input() student:IStudent
   @Output() eventClick = new EventEmitter();
 
   handleClickMe() {

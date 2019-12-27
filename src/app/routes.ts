@@ -11,5 +11,6 @@ export const appRoutes:Routes = [
   { path: 'students', component: StudentsListComponent, resolve: {students: StudentListResolver} },
   { path: 'students/:id', component: StudentDetailComponent , canActivate: [StudentRouterActivator]},
   { path: '404', component: Error404Component },
-  { path: '', redirectTo: '/students', pathMatch: 'full' }
+  { path: '', redirectTo: '/students', pathMatch: 'full' },
+  { path: 'user', loadChildren: './user/user.module#UserModule'}
 ]
